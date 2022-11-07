@@ -1,3 +1,4 @@
+import pandas as pd
 from google.cloud import bigquery
 from google.oauth2 import service_account
 credentials = service_account.Credentials.from_service_account_file(
@@ -15,8 +16,7 @@ def query_year_sales():
     """)
     query_job = client.query(QUERY)  # API request
     rows = query_job.result()  # Waits for query to finish
-    print("query 1:")
-    print("total sales of video game in each year")
+    print("\ntotal sales of video game in each year")
     print("year, total sales")
     for row in rows:
         print(row.release_year, row.total_sales)
@@ -30,8 +30,7 @@ def query_genre_sales():
     """)
     query_job = client.query(QUERY)  # API request
     rows = query_job.result()  # Waits for query to finish
-    print("\nquery 2:")
-    print("total sales of video game of different genres")
+    print("\ntotal sales of video game of different genres")
     print("genre, total sales")
     for row in rows:
         print(row.genre, row.total_sales)
@@ -45,8 +44,7 @@ def query_region_sales():
     """)
     query_job = client.query(QUERY)  # API request
     rows = query_job.result()  # Waits for query to finish
-    print("\nquery 3:")
-    print("total sales of video game in different regions")
+    print("\ntotal sales of video game in different regions")
     print("region, total sales")
     for row in rows:
         print(row.region, row.total_sales)
