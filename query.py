@@ -15,7 +15,7 @@ def query_year_sales():
     """)
     query_job = client.query(QUERY)  # API request
     rows = query_job.result()  # Waits for query to finish
-    print("\ntotal sales of video game in each year")
+    print("total sales of video game in each year")
     print("year, total sales")
     for row in rows:
         print(row.release_year, row.total_sales)
